@@ -1,0 +1,18 @@
+{{ define "goals" }}
+  <ul id="goals" hx-swap="outerHTML" >
+    {{ range . }}
+      {{ template "goal" . }}
+    {{ end }}
+  </ul>
+{{ end }}
+
+
+{{ define "goal" }}
+<li id="goal-{{.ID}}">
+  <span>{{.Text}}</span>
+  <button
+          hx-delete="/goals/{{.ID}}"
+          hx-target="#goal-{{.ID}}"
+  >Remove</button>
+</li>
+{{end}}
