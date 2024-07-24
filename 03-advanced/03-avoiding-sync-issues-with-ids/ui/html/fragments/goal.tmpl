@@ -1,0 +1,7 @@
+<li id="goal-{{.ID}}">
+    <span>{{.Text}}</span>
+    <button
+            hx-delete="/goals/{{.ID}}"
+            hx-target="#goal-{{.ID}}"
+            hx-swap="outerHTML">Remove</button>
+</li>
