@@ -1,0 +1,13 @@
+{{ define "goals" }}
+  <ul id="goals">
+    {{ range $index, $element := . }}
+      <li id="goal-{{$index}}">
+        <span>{{$element}}</span>
+        <button
+          hx-delete="/goals/{{$index}}"
+          hx-target="#goal-{{$index}}"
+          hx-swap="outerHTML">Remove</button>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
