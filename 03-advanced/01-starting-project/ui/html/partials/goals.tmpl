@@ -1,0 +1,10 @@
+{{ define "goals" }}
+  <ul id="goals">
+    {{ range $index, $element := . }}
+      <li id="goal-{{$index}}">
+        <span>{{$element}}</span>
+        <button>Remove</button>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
