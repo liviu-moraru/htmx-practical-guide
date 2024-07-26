@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTMX Essentials</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/static/icon.png" />
+    <script src="/static/htmx.js" defer></script>
+    <link rel="stylesheet" href="/static/main.css" />
+  </head>
+  <body>
+  <main>
+    <h1>Manage your course goals</h1>
+    <section>
+      <form
+              id="goal-form"
+              hx-post="/goals"
+              hx-target="#goals"
+              hx-swap="beforeend"
+              hx-on:submit="document.querySelector('form').reset()"
+              >
+        <div>
+          <label htmlFor="goal">Goal</label>
+          <input type="text" id="goal" name="goal" />
+        </div>
+        <button type="submit">Add goal</button>
+      </form>
+    </section>
+    <section>
+      {{ template "goals" . }}
+    </section>
+  </main>
+  </body>
+</html>
