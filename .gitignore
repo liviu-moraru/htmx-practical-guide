@@ -22,3 +22,12 @@ go.work
 go.work.sum
 **/.idea/
 **/.DS_STORE
+**/node_modules
+
+
+ {{ if .IsAvailable}}
+      {{ $attr = "hx-post=\"/places\"
+      hx-vals='{\"locationId\": \"{{ .ID }}\"}'
+      hx-target=\"#interesting-locations\"
+      hx-swap=\"beforeend\""}}
+      {{end}}
