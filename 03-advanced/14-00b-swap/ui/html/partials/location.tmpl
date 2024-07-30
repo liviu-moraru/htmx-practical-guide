@@ -1,0 +1,19 @@
+{{ define "location" }}
+  <li class="location-item">
+    <button
+      {{ if .IsAvailable }}
+        hx-post="/places" hx-vals='{"locationId": "{{ .LocationData.ID }}"}'
+        hx-target="#interesting-locations" hx-swap="beforeend"
+      {{ else }}
+        hx-delete="/places/{{ .LocationData.ID }}" hx-confirm="Are you sure?"
+        hx-target="closest li" hx-swap="outerHTML"
+      {{ end }}
+    >
+      <img
+        src="/static/images/{{ .LocationData.Image.Src }}"
+        alt="{{ .LocationData.Image.Alt }}"
+      />
+      <h3>{{ .LocationData.Title }}</h3>
+    </button>
+  </li>
+{{ end }}
