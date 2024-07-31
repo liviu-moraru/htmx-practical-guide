@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Interesting Locations</title>
+    <link rel="stylesheet" href="/static/main.css" />
+    <link rel="icon" href="/static/logo.png" />
+    <script src="/static/htmx.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img src="/static/logo.png" alt="Stylized globe" />
+      <h1>PlacePicker</h1>
+      <p>
+        Create your personal collection of places you would like to visit or you
+        have visited.
+      </p>
+    </header>
+    <main>
+      <section id="int-locations-section" class="locations-category">
+        <h2>My Dream Locations</h2>
+        <ul id="interesting-locations" class="locations">
+          {{ range .InterestingLocations }}
+            {{ template  "location" . }}
+          {{ end }}
+        </ul>
+      </section>
+
+      <section class="locations-category">
+        <h2>Available Locations</h2>
+        <ul id="available-locations" class="locations">
+          {{ range .NotInterestingLocations }}
+            {{ template  "location" . }}
+          {{ end }}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
