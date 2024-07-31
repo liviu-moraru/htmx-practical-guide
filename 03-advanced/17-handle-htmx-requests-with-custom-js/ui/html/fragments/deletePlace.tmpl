@@ -1,0 +1,5 @@
+<ul id="available-locations" class="locations" hx-swap-oob="true">
+  {{ range .Locations }}
+    {{ template  "location" . }}
+  {{ end }}
+</ul>
