@@ -1,0 +1,14 @@
+{{ template "location" .Location }}
+
+
+<ul id="suggested-locations" class="locations" hx-swap-oob="innerHTML">
+  {{ range .SuggestedLocations }}
+    {{ template  "location" . }}
+  {{ end }}
+</ul>
+
+<ul id="available-locations" class="locations" hx-swap-oob="true">
+  {{ range .NotInterestedLocations }}
+    {{ template  "location" . }}
+  {{ end }}
+</ul>
