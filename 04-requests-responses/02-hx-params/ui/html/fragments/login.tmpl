@@ -1,0 +1,9 @@
+{{ if .Errors }}
+  <div id="extra-information">
+    <ul id="form-errors">
+      {{ range .Errors }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}
