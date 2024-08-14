@@ -1,0 +1,1 @@
+### For CSRF protection I used the `justinas/nosurf` package.
