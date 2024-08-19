@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Shop</title>
+    <link rel="stylesheet" href="/static/main.css" />
+    <script src="/static/htmx.js" defer></script>
+  </head>
+  <body>
+    <header id="main-header">
+      <div id="main-title">
+        <a href="/">
+          <img src="/static/logo.png" alt="Elegant model" />
+          <h1>Elegant Clothing</h1>
+        </a>
+      </div>
+    </header>
+    <main id="shop" hx-boost="true">
+      <h2>Elegant Clothing For Everyone</h2>
+
+      <ul id="products">
+        {{ range .Products }}
+          <article class="product">
+            <a href="/products/{{ .ID }}">
+              <img src="/static/images/{{ .Image }}" alt="${product.title}" />
+              <div class="product-content">
+                <h3>{{ .Title }}</h3>
+                <p class="product-price">{{ .Price }}</p>
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </ul>
+    </main>
+  </body>
+</html>
